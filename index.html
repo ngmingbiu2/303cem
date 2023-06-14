@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <h1>Perfect HR Limited</h1>
+      <h1>  Perfect HR Department</h1>
     </header>
     <nav>
       <form>
@@ -16,6 +16,7 @@
         <button type="button" id="employees-button">Employees</button>
         <button type="button" id="departments-button">Departments</button>
         <button type="button" id="power-app-button">Request Leave</button>
+        <button type="button" id="contact-button">Contact Us</button>
       </form>
     </nav>
     <main>
@@ -27,57 +28,93 @@
         </p>
       </div>
       <div id="employees-page" style="display: none;">
-        <h2>Our Employees</h2>
+        <h3>Our Employees</h3>
       </div>
       <div id="departments-page" style="display: none;">
-        <h2>Our Departments</h2>
+        <h3>Our Departments</h3>
+        <ul>
+          <li>
+            <h2>I.T. Support Team</h2>
+            <p>We are the I.T. Support Team, dedicated to ensuring the smooth operation of the company's computer systems, software, and technical infrastructure. We possess specialized knowledge and expertise to maintain and support these systems, and we are always ready to assist our colleagues with any technical issues they may encounter.</p>
+          </li>
+          <li>
+            <h2>Consultation Team </h2>
+            <p>We are the Consultation Team, committed to providing expert advice and guidance to our clients. We understand that each client is unique, and we work closely with them to understand their needs and provide tailored solutions that help them achieve their goals.</p>
+          </li>
+          <li>
+            <h2>Business Management Team</h2>
+            <p>We are the Business Management Team, responsible for the effective coordination and management of the company's operations. We oversee budgets, projects, and processes to ensure that everything runs smoothly and efficiently. Our role is to provide the support and resources needed for each department to succeed and meet its objectives.</p>
+          </li>
+          <li>
+            <h2>Security Team</h2>
+            <p>We are the Security Team, tasked with ensuring the safety and security of the company's employees and assets. We employ a range of measures to prevent and mitigate potential threats, and we are always vigilant in our monitoring of the company's premises. Our goal is to provide a secure and safe environment for everyone in the company.</p>
+          </li>
+        </ul>
+      </div>
+      <div id="contact-page" style="display: none;">
+        <h3>Contact Us</h3>
+        <iframe id="form-frame" src=""></iframe>
       </div>
       <iframe id="power-app-iframe" src=""></iframe>
     </main>
     <script>
       const homeButton = document.getElementById('home-button');
-	  const employeesButton = document.getElementById('employees-button');
-	  const departmentsButton = document.getElementById('departments-button');
-	  const powerAppButton = document.getElementById('power-app-button');
-	  const powerAppIframe = document.getElementById('power-app-iframe');
-	  const powerAppUrl =
-		'https://apps.powerapps.com/play/e/ab61ef21-a3a1-e1a0-8bd3-aa92cb13c896/a/590fe388-b50a-4507-a2d8-5975e45c22c4?tenantId=2109ce83-7de4-4471-91ff-2053f90a1fd9';
+      const employeesButton = document.getElementById('employees-button');
+      const departmentsButton = document.getElementById('departments-button');
+      const powerAppButton = document.getElementById('power-app-button');
+      const contactButton = document.getElementById('contact-button');
+      const homePage = document.getElementById('home-page');
+      const employeesPage = document.getElementById('employees-page');
+      const departmentsPage = document.getElementById('departments-page');
+      const powerAppFrame = document.getElementById('power-app-iframe');
+      const contactPage = document.getElementById('contact-page');
+      const formFrame = document.getElementById('form-frame');
 
-	  homeButton.addEventListener('click', () => {
-	  document.getElementById('home-page').style.display = 'block';
-	  document.getElementById('employees-page').style.display = 'none';
-	  document.getElementById('departments-page').style.display = 'none';
-	  document.body.classList.add('home-page-background');
-	  powerAppIframe.src = '';
-	  });
+      function showHomePage() {
+        homePage.style.display = 'block';
+        employeesPage.style.display = 'none';
+        departmentsPage.style.display = 'none';
+        powerAppFrame.style.display = 'none';
+        contactPage.style.display = 'none';
+      }
 
-	  employeesButton.addEventListener('click', () => {
-	  document.getElementById('home-page').style.display = 'none';
-	  document.getElementById('employees-page').style.display = 'block';
-	  document.getElementById('departments-page').style.display = 'none';
-	  document.body.classList.remove('home-page-background');
-	  powerAppIframe.src = '';
-	  });
+      homeButton.addEventListener('click', showHomePage);
 
-	  departmentsButton.addEventListener('click', () => {
-	  document.getElementById('home-page').style.display = 'none';
-	  document.getElementById('employees-page').style.display = 'none';
-	  document.getElementById('departments-page').style.display = 'block';
-	  document.body.classList.remove('home-page-background');
-	  powerAppIframe.src = '';
-	  });
+      employeesButton.addEventListener('click', () => {
+        homePage.style.display = 'none';
+        employeesPage.style.display = 'block';
+        departmentsPage.style.display = 'none';
+        powerAppFrame.style.display = 'none';
+        contactPage.style.display = 'none';
+      });
 
-	  powerAppButton.addEventListener('click', () => {
-	  document.getElementById('home-page').style.display = 'none';
-	  document.getElementById('employees-page').style.display = 'none';
-	  document.getElementById('departments-page').style.display = 'none';
-	  document.body.classList.remove('home-page-background');
-	  powerAppIframe.src = powerAppUrl;
-	  });
+      departmentsButton.addEventListener('click', () => {
+        homePage.style.display = 'none';
+        employeesPage.style.display = 'none';
+        departmentsPage.style.display = 'block';
+        powerAppFrame.style.display = 'none';
+        contactPage.style.display = 'none';
+      });
 
-	  window.addEventListener('load', () => {
-	    document.getElementById('home-page').style.display = 'block';
-	  });
+      powerAppButton.addEventListener('click', () => {
+        homePage.style.display = 'none';
+        employeesPage.style.display = 'none';
+        departmentsPage.style.display = 'none';
+        powerAppFrame.style.display = 'block';
+        contactPage.style.display = 'none';
+        powerAppFrame.src = 'https://apps.powerapps.com/play/e/ab61ef21-a3a1-e1a0-8bd3-aa92cb13c896/a/590fe388-b50a-4507-a2d8-5975e45c22c4?tenantId=2109ce83-7de4-4471-91ff-2053f90a1fd9';
+      });
+
+      contactButton.addEventListener('click', () => {
+        homePage.style.display = 'none';
+        employeesPage.style.display = 'none';
+        departmentsPage.style.display = 'none';
+        powerAppFrame.style.display = 'none';
+        contactPage.style.display = 'block';
+        formFrame.src = 'https://forms.office.com/r/zmwB9eeskm';
+      });
+
+      window.onload = showHomePage;
     </script>
   </body>
 </html>
